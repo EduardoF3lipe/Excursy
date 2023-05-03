@@ -3,14 +3,20 @@ let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
 menu.onclick = () => {
-    menu.classList.toggle('ri-menu-3-fill');
-    navbar.classList.toggle('open');
-}
+    if (menu.classList.contains('ri-menu-3-line')) {
+      menu.classList.replace('ri-menu-3-line', 'ri-close-line')
+      navbar.classList.add('open');
+    } else {
+      menu.classList.replace('ri-close-line', 'ri-menu-3-line')
+      navbar.classList.remove('open');
+    }
+    
+  }
 
 
 ScrollReveal({ 
     // reset: true,
-    distance: '50px',
+    distance: '45px',
     durantion: 2500,
     delay: 200,
     easing: 'ease-out'
@@ -18,12 +24,9 @@ ScrollReveal({
 
 
 //Animação scroll para aparecer
-ScrollReveal().reveal('.About-text, .value-text', { delay: 200, origin:'right'});
+ScrollReveal().reveal('.About-text, .value-text, home-text', { delay: 200, origin:'right'});
 ScrollReveal().reveal('.About-img, .value-img', { delay: 300, origin:'left' });
 ScrollReveal().reveal('.brands', { delay: 100 });
-
-ScrollReveal().reveal('.home-text, .home-img', { distance: '0px', opacity: 1000, durantion: 3000});
-
 ScrollReveal().reveal('.Interests h2', { delay: 200, origin:'left' });
 ScrollReveal().reveal('.Interests p', { delay: 400});
 ScrollReveal().reveal('.box, .current-box', { delay: 300, origin:'top', interval: 500 });
